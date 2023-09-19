@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Soccr.OCRPage"           
+             xmlns:cv="clr-namespace:Camera.MAUI;assembly=Camera.MAUI"
+             NavigationPage.HasNavigationBar="False">
+    <VerticalStackLayout
+        BackgroundColor="#252525">
+        <Label
+            Margin="0,30,0,0"
+            Text="Scan paper to import"
+            FontFamily="InterRegular"
+            FontSize="22"
+            HorizontalOptions="Center"/>
+        <cv:CameraView
+            Margin="0,20,0,0"
+            x:Name="cameraView"
+            WidthRequest="350"
+            HeightRequest="600"
+            Loaded="CameraView_Loaded"/>
+        <HorizontalStackLayout>
+            <Button
+                    x:Name="flashButton"
+                    HorizontalOptions="Center"
+                    Margin="30,30,0,0"
+                    Text="FLASH"
+                    WidthRequest="100"
+                    FontFamily="InterBold"
+                    FontSize="18"
+                    TextColor="White"
+                    BackgroundColor="#303030"
+                    Clicked="FlashButton_Clicked"/>
+
+            <Button                    
+                    Margin="20,30,0,0"
+                    Text="SCAN"
+                    WidthRequest="200"
+                    FontFamily="InterBold"
+                    FontSize="18"
+                    TextColor="White"
+                    BackgroundColor="#d96057"
+                    Clicked="Button_Clicked"/>
+        </HorizontalStackLayout>
+    </VerticalStackLayout>
+</ContentPage>

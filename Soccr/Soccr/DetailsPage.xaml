@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Soccr.DetailsPage"
+             Title="DetailsPage"
+             NavigationPage.HasNavigationBar="False">
+    <VerticalStackLayout 
+        Background="#252525"
+        x:Name="verticalStack">
+        <Grid            
+            Margin="0,30,0,0"
+            x:Name="processingIndicator"
+            IsVisible="False">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <ActivityIndicator 
+                IsRunning="True"
+                Grid.Row="0"
+                HorizontalOptions="Center"/>
+            <Label 
+                HorizontalOptions="Center"
+                Text="Processing" 
+                FontSize="22" 
+                TextColor="White"
+                Grid.Row="1"/>
+        </Grid>
+        <ListView
+            x:Name="playersListView"
+            HeightRequest="750"
+            Margin="5,5,5,0">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell Height="50">
+                        <Border
+                            Background="#303030">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="5,5,5,5" />
+                            </Border.StrokeShape>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="50"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Entry
+                                Grid.Column="0"                                
+                                Text="{Binding Number}"
+                                FontSize="18"/>
+                                <Entry
+                                Grid.Column="1"
+                                Text="{Binding Name}"
+                                FontSize="16"/>
+
+                                <Grid
+                                Grid.Column="2"
+                                HorizontalOptions="End"
+                                Margin="0,0,10,0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <RadioButton 
+                                    Content="Home" 
+                                    Grid.Column="0"
+                                    FontSize="12"
+                                    IsChecked="{Binding IsHomePlayer}"
+                                    Margin="0,0,0,0"/>
+                                    <RadioButton 
+                                    Content="Away" 
+                                    Grid.Column="1"
+                                    FontSize="12"/>
+                                </Grid>
+                            </Grid>
+                        </Border>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Button
+            x:Name="savePlayersButton"
+            Margin="0,20,0,0"
+            Text="SAVE"
+            WidthRequest="200"
+            FontFamily="InterBold"
+            FontSize="18"
+            TextColor="White"
+            BackgroundColor="#d96057"
+            IsVisible="False"
+            Clicked="savePlayersButton_Clicked"/>
+    </VerticalStackLayout>
+</ContentPage>

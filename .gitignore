@@ -1,0 +1,13 @@
+# Visual Studio
+Soccr/.vs
+SoccrServer/.vs
+
+# MAUI Project
+Soccr/Soccr/.vs
+Soccr/Soccr/bin
+Soccr/Soccr/obj
+
+# ASP.NET Core Projekt
+
+SoccrServer/SoccrServer/bin
+SoccrServer/SoccrServer/obj
